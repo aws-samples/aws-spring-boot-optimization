@@ -1,0 +1,29 @@
+[
+  {
+    "name":"com.amazon.customerService.model.metrics.MetricWrapper",
+    "allDeclaredFields":true,
+    "allDeclaredMethods":true,
+    "allDeclaredConstructors":true,
+    "allPublicConstructors" : true,
+    "allPublicMethods" : true,
+    "allPublicFields" : true
+  },
+  {
+    "name":"com.amazon.customerService.model.metrics.ContainerMetric",
+    "allDeclaredFields":true,
+    "allDeclaredMethods":true,
+    "allDeclaredConstructors":true,
+    "allPublicConstructors" : true,
+    "allPublicMethods" : true,
+    "allPublicFields" : true
+  },
+  {
+    "name":"com.amazon.customerService.model.metrics.TaskMetric",
+    "allDeclaredFields":true,
+    "allDeclaredMethods":true,
+    "allDeclaredConstructors":true,
+    "allPublicConstructors" : true,
+    "allPublicMethods" : true,
+    "allPublicFields" : true
+  }
+]

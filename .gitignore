@@ -1,0 +1,54 @@
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea
+*.ipr
+*.iml
+*.iws
+
+# NetBeans
+nb-configuration.xml
+
+# Visual Studio Code
+.vscode
+
+# OSX
+.DS_Store
+
+# Vim
+*.swp
+*.swo
+
+# patch
+*.orig
+*.rej
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+.mvn
+
+# CDK
+cdk.context.json
+node_modules
+cdk.out
+
+samconfig.toml
+04-spring-native/CustomerService/_src/main/java/com/amazon/customerService/CustomerServiceApplication.java
+04-spring-native/CustomerService/_src/main/java/com/amazon/customerService/config/AppConfig.java
+04-spring-native/CustomerService/_src/main/java/com/amazon/customerService/controller/CustomerController.java
+04-spring-native/CustomerService/_src/main/java/com/amazon/customerService/exception/CustomerNotFoundException.java
+04-spring-native/CustomerService/_src/main/java/com/amazon/customerService/inspector/XRayInspector.java
+04-spring-native/CustomerService/_src/main/java/com/amazon/customerService/model/Customer.java
+04-spring-native/CustomerService/_src/main/java/com/amazon/customerService/repository/CustomerRepository.java
+04-spring-native/CustomerService/_src/main/java/com/amazon/customerService/service/CustomerService.java
+04-spring-native/CustomerService/_src/main/resources/application-local.properties
+04-spring-native/CustomerService/_src/main/resources/application-prod.properties
+04-spring-native/CustomerService/_src/main/resources/META-INF/native-image/reflect-config.json
+04-spring-native/CustomerService/_src/test/java/com/amazon/customerService/repository/CustomerRepositoryTest.java
