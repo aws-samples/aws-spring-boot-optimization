@@ -13,6 +13,8 @@ The application is available in six different configurations:
 * V5: Spring Native (GraalVM AoT compilation), for X86_64
 * V6: Spring Native (GraalVM AoT compilation), for ARM64
 
+![infrastructure-overview](images/SpringBoot_example_architecture.png)
+
 # Build the application
 
 Building the application to an Uber-JAR is very simple, the only dependency is Maven
