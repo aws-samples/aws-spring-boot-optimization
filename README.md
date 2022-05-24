@@ -46,7 +46,7 @@ After we've built and pushed the Docker image containing the native image of the
 ```
 $ npm install -g aws-cdk
 $ npm install
-$ dk deploy CdkappStack --parameters containerImage=<your_container_image> --context cpuType=<cpuArch>  // Deploys the CloudFormation template
+$ cdk deploy CdkappStack --parameters containerImage=<your_container_image> --context cpuType=<cpuArch>  // Deploys the CloudFormation template
 ```
 
 The parameter `cpuType` can have either the value `X86_64` or `ARM64`.
