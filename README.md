@@ -4,16 +4,36 @@ This project contains the supporting code for the "Optimizing Spring Boot Applic
 
 # Architecture Overview
 
-The application is available in six different configurations:
+The application is available in seven different configurations:
 
-* V1: not optimized, for x86_64
-* V2: not optimized, for ARM64
-* V3: custom JRE and additional optimizations, for x86_64
-* V4: custom JRE and additional optimizations, for ARM64
-* V5: Spring Native (GraalVM AoT compilation), for X86_64
-* V6: Spring Native (GraalVM AoT compilation), for ARM64
+* version 1, not optimized, running on x86_64
+* version 2, not optimized, running on ARM64
+* version 3, custom JRE and additional optimizations running on x86_64
+* version 4, Spring Native (GraalVM AoT compilation) running on X86_64 with distroless parent image
+* version 5, custom JRE and additional optimizations running on ARM64
+* version 6, Spring Native (GraalVM AoT compilation) running on ARM64 with Ubuntu 22 parent image
+* version 7, Spring Native (GraalVM AoT compilation) running on X86_64 with Ubuntu 22 parent image
 
 ![infrastructure-overview](images/SpringBoot_example_architecture.png)
+
+# Getting started
+
+To build and deploy this application, you will need the AWS CLI, the [AWS Cloud Development Kit (AWS CDK) V2](https://github.com/aws/aws-cdk), Docker, and [Docker Buildx](https://docs.docker.com/buildx/working-with-buildx/). AWS Cloud9 has all dependencies pre-installed so you deploy it with a single command. It is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It comes with the AWS tools, Git, and Docker installed.
+Create a new AWS Cloud9 EC2 environment (https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html) based on Amazon Linux. Because the compilation process is very memory intensive, it is recommended to select an instance with at least 8 GiB of RAM (for example, m5.large). For building ARM images, an X86 CPU with QEMU can also be used without any problems, but more about that later.
+
+![infrastructure-overview](images/cloud9.png)
+
+Launching the AWS Cloud9 environment from the AWS Management Console, you select the instance type. Pick an instance type with at least 8 GiB of RAM.
+
+After creation, you are redirected automatically to your AWS Cloud9 environment’s IDE. You can navigate back to your IDE at any time through the [AWS Cloud9 console](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fcloud9%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloud9&forceMobileApp=0&code_challenge=C-AufLUePBN22yMIphjlu96ObOBadc9Z0hK3poSCveQ&code_challenge_method=SHA-256).
+
+All code blocks in this blog post refer to commands you enter into the terminal provided by the AWS Cloud9 IDE. AWS Cloud9 executes the commands on an underlying EC2 instance. If necessary, you can open a new Terminal in AWS Cloud9 by selecting *Window → New Terminal*.
+
+[Modify the EBS volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/requesting-ebs-volume-modifications.html#modify-ebs-volume) of the AWS Cloud9 EC2 instance to at least 20 GB to have enough space for the compilation of your application. Then, reboot the instance using the following command in the AWS Cloud9 IDE terminal, and wait for the AWS Cloud9 IDE to automatically reconnect to your instance.
+
+```
+sudo reboot
+```
 
 # Build the application
 
@@ -63,6 +83,9 @@ $ curl -v -d '{"userName":"hmueller", "firstName":"Hans", "lastName":"Mueller", 
 curl -v -X DELETE http://<lb-url>:8080/customers/<id> // Delete customer by id
 
 ```
+
+For local development, [DynamoDB Local](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) can be used. DynamoDB Local is the downloadable version of DynamoDB that lets you write and test applications without accessing the DynamoDB service. Instead, the database is self-contained on your computer. When you are ready to deploy your application in production, you can make a few minor changes to the code so that it uses the DynamoDB service.
+
 
 # Contributing
 

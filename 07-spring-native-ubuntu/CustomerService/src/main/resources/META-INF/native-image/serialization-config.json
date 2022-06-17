@@ -1,0 +1,10 @@
+[
+  {
+    "name":"com.amazon.customerService.repository.CustomerRepository$$EnhancerBySpringCGLIB$$2563aeec",
+    "customTargetConstructorClass":"java.lang.Object"
+  },
+  {
+    "name":"com.amazon.customerService.service.CustomerService$$EnhancerBySpringCGLIB$$9ed02915",
+    "customTargetConstructorClass":"java.lang.Object"
+  }
+]
