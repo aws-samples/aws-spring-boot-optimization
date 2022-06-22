@@ -29,7 +29,7 @@ import java.net.URI;
 @Configuration
 public class AppConfig {
 
-    public final static Integer APPLICATION_VERSION = 4;
+    public final static Integer APPLICATION_VERSION = 5;
 
     @Value("${amazon.dynamodb.endpoint}")
     private String amazonDynamoDBEndpoint;
