@@ -9,10 +9,10 @@ The application is available in seven different configurations:
 * version 1, not optimized, running on x86_64
 * version 2, not optimized, running on ARM64
 * version 3, custom JRE and additional optimizations running on x86_64
-* version 4, Spring Native (GraalVM AoT compilation) running on X86_64 with distroless parent image
-* version 5, custom JRE and additional optimizations running on ARM64
+* version 4, custom JRE and additional optimizations running on ARM64
+* version 5, Spring Native (GraalVM AoT compilation) running on X86_64 with Ubuntu 22 parent image
 * version 6, Spring Native (GraalVM AoT compilation) running on ARM64 with Ubuntu 22 parent image
-* version 7, Spring Native (GraalVM AoT compilation) running on X86_64 with Ubuntu 22 parent image
+* version 7, Spring Native (GraalVM AoT compilation) running on X86_64 with distroless parent image
 
 ![infrastructure-overview](images/SpringBoot_example_architecture.png)
 
