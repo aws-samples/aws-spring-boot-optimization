@@ -7,9 +7,9 @@ RUN wget -O- https://apt.corretto.aws/corretto.key | apt-key add -
 RUN add-apt-repository 'deb https://apt.corretto.aws stable main'
 RUN apt install -y java-11-amazon-corretto-jdk
 
-RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz -P /tmp
-RUN tar xf /tmp/apache-maven-3.8.5-bin.tar.gz -C /opt
-RUN ln -s /opt/apache-maven-3.8.5 /opt/maven
+RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz -P /tmp
+RUN tar xf /tmp/apache-maven-3.8.6-bin.tar.gz -C /opt
+RUN ln -s /opt/apache-maven-3.8.6 /opt/maven
 
 ENV M2_HOME=/opt/maven
 ENV MAVEN_HOME=/opt/maven
