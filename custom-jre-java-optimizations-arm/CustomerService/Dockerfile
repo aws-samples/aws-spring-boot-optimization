@@ -6,12 +6,12 @@ RUN apt-get install -y wget unzip binutils gnupg2 software-properties-common
 RUN wget https://apt.corretto.aws/corretto.key -P /tmp
 RUN apt-key add /tmp/corretto.key
 RUN add-apt-repository 'deb https://apt.corretto.aws stable main'
-RUN apt-get install -y java-18-amazon-corretto-jdk
+RUN apt-get install -y java-17-amazon-corretto-jdk
 RUN mkdir -p /usr/share/man/man1
 
-RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz -P /tmp
-RUN tar xf /tmp/apache-maven-3.8.5-bin.tar.gz -C /opt
-RUN ln -s /opt/apache-maven-3.8.5 /opt/maven
+RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz -P /tmp
+RUN tar xf /tmp/apache-maven-3.8.6-bin.tar.gz -C /opt
+RUN ln -s /opt/apache-maven-3.8.6 /opt/maven
 
 ENV M2_HOME=/opt/maven
 ENV MAVEN_HOME=/opt/maven
