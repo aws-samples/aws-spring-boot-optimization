@@ -16,10 +16,10 @@ ENV MAVEN_OPTS='-Xmx8g'
 
 RUN source "$HOME/.sdkman/bin/sdkman-init.sh" && mvn -Dmaven.test.skip=true clean package
 
-FROM public.ecr.aws/lts/ubuntu:20.04
+FROM public.ecr.aws/lts/ubuntu:22.04
 RUN addgroup --system spring && adduser --system spring --ingroup spring
 USER spring:spring
-COPY --from=build-aot /target/CustomerService /
+COPY --from=build-aot /app/target/CustomerService /
 EXPOSE 8080
 
 CMD ["./CustomerService", "-Dspring.profiles.active=prod"]
