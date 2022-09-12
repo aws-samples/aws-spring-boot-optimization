@@ -18,7 +18,7 @@ RUN source "$HOME/.sdkman/bin/sdkman-init.sh" && mvn -Dmaven.test.skip=true clea
 
 FROM quay.io/quarkus/quarkus-distroless-image:1.0
 
-COPY --from=build-aot /target/CustomerService /
+COPY --from=build-aot /app/target/CustomerService /
 
 EXPOSE 8080
 USER nonroot
