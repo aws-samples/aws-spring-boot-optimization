@@ -15,16 +15,11 @@
 
 package com.amazon.customerService.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttribute;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
-
 import java.time.Instant;
 import java.util.Objects;
 
-@DynamoDbBean
-@JsonInclude(JsonInclude.Include.NON_NULL)
+//@DynamoDbBean
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 
 public class Customer {
 
@@ -42,8 +37,8 @@ public class Customer {
         this.regDate = customer.regDate;
     }
 
-    @DynamoDbPartitionKey
-    @DynamoDbAttribute(value = "Id")
+    //@DynamoDbPartitionKey
+    //@DynamoDbAttribute(value = "Id")
     public String getId() {
         return id;
     }
@@ -52,7 +47,7 @@ public class Customer {
         this.id = id;
     }
 
-    @DynamoDbAttribute(value = "Name")
+    //@DynamoDbAttribute(value = "Name")
     public String getName() {
         return name;
     }
@@ -61,7 +56,7 @@ public class Customer {
         this.name = name;
     }
 
-    @DynamoDbAttribute(value = "Email")
+    //@DynamoDbAttribute(value = "Email")
     public String getEmail() {
         return email;
     }
@@ -70,7 +65,7 @@ public class Customer {
         this.email = email;
     }
 
-    @DynamoDbAttribute(value = "AccountNumber")
+    //@DynamoDbAttribute(value = "AccountNumber")
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -79,7 +74,7 @@ public class Customer {
         this.accountNumber = accountNumber;
     }
 
-    @DynamoDbAttribute(value = "RegistrationDate")
+    //@DynamoDbAttribute(value = "RegistrationDate")
     public Instant getRegDate() {
         return regDate;
     }
