@@ -39,7 +39,7 @@ public class CustomerRepository {
 
     final DynamoDbClient client;
 
-    private SimpleDateFormat sdf;
+    private final SimpleDateFormat sdf;
 
     @Autowired
     public CustomerRepository(DynamoDbClient client) {
@@ -100,7 +100,7 @@ public class CustomerRepository {
         }
 
         log.debug("Found customers: ");
-        for (Customer customer: customerList
+        for (Customer customer : customerList
         ) {
             log.debug("  -> " + customer);
         }
@@ -147,9 +147,7 @@ public class CustomerRepository {
 
         try {
             registrationDate = sdf.parse(item.get(REGISTRATION_DATE_COLUMN).s());
-        }
-
-        catch (ParseException exc) {
+        } catch (ParseException exc) {
             log.error(exc.toString());
         }
 

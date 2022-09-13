@@ -23,7 +23,8 @@ public class ContainerMetric {
     private Instant createdAt;
     private Instant startedAt;
 
-    public ContainerMetric() {}
+    public ContainerMetric() {
+    }
 
     public ContainerMetric(Instant createdAt, Instant startedAt) {
         this.createdAt = createdAt;

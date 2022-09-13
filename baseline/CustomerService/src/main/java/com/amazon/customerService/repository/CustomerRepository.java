@@ -62,8 +62,8 @@ public class CustomerRepository {
         customerTable.scan().items().forEach(customerList::add);
 
         log.debug("Found customers: ");
-        for (Customer customer: customerList
-             ) {
+        for (Customer customer : customerList
+        ) {
             log.debug("  -> " + customer);
         }
 

@@ -20,10 +20,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
+import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
-import software.amazon.awssdk.services.dynamodb.DynamoDbClientBuilder;
 
-import javax.servlet.Filter;
 import java.net.URI;
 
 @Configuration
@@ -41,12 +41,17 @@ public class AppConfig {
                         .profileName("default")
                         .build();
 
-        DynamoDbClientBuilder clientBuilder = DynamoDbClient.builder();
-        clientBuilder
-                .credentialsProvider(credentialsProvider);
-        if(!amazonDynamoDBEndpoint.isEmpty()){
-            clientBuilder.endpointOverride(URI.create(amazonDynamoDBEndpoint));
-        }
-        return clientBuilder.build();
+        return DynamoDbClient.builder()
+                .region(Region.EU_WEST_1)
+                .credentialsProvider(credentialsProvider)
+                .endpointOverride(URI.create(amazonDynamoDBEndpoint))
+                .build();
+    }
+
+    @Bean
+    public DynamoDbEnhancedClient getDynamoDbEnhancedClient() {
+        return DynamoDbEnhancedClient.builder()
+                .dynamoDbClient(getDynamoDbClient())
+                .build();
     }
 }

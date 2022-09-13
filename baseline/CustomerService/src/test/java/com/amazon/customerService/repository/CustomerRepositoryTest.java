@@ -41,15 +41,13 @@ import java.util.UUID;
         "amazon.dynamodb.endpoint=http://localhost:8000/"})
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@TestPropertySource(locations="classpath:application-local.properties")
+@TestPropertySource(locations = "classpath:application-local.properties")
 public class CustomerRepositoryTest {
 
     @Autowired
-    private DynamoDbEnhancedClient dynamoDbEnhancedClient;
-
-    @Autowired
     CustomerRepository repository;
-
+    @Autowired
+    private DynamoDbEnhancedClient dynamoDbEnhancedClient;
     private DynamoDbTable table;
     private Customer testCustomer;
 
@@ -65,9 +63,7 @@ public class CustomerRepositoryTest {
 
         try {
             table.describeTable();
-        }
-
-        catch (software.amazon.awssdk.services.dynamodb.model.ResourceNotFoundException exc) {
+        } catch (software.amazon.awssdk.services.dynamodb.model.ResourceNotFoundException exc) {
             // Table doesn't exist
             table.createTable();
         }
@@ -134,7 +130,7 @@ public class CustomerRepositoryTest {
         repository.deleteById(testCustomer.getId());
 
         List<Customer> customerList = repository.findAll();
-        Assert.assertTrue(customerList.size() == 0);
+        Assert.assertEquals(0, customerList.size());
     }
 
     @AfterAll

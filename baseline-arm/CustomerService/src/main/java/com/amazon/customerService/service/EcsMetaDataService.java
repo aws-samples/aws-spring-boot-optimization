@@ -83,9 +83,7 @@ public class EcsMetaDataService {
 
             metricWrapper.setTaskMetric(taskMetric);
             metricWrapper.setContainerMetric(containerMetric);
-        }
-
-        catch (IOException exc) {
+        } catch (IOException exc) {
             log.error("An error occurred: ", exc);
         }
 

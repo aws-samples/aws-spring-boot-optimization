@@ -24,7 +24,8 @@ public class TaskMetric {
     private Instant pullStoppedAt;
     private String taskArn;
 
-    public TaskMetric() {}
+    public TaskMetric() {
+    }
 
     public TaskMetric(Instant pullStartedAt, Instant pullStoppedAt, String taskArn) {
         this.pullStartedAt = pullStartedAt;

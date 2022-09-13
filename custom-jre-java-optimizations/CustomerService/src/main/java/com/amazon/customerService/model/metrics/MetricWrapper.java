@@ -26,7 +26,8 @@ public class MetricWrapper {
     private Instant springBootReadyTime;
     private Integer version;
 
-    public MetricWrapper() {}
+    public MetricWrapper() {
+    }
 
     public MetricWrapper(ContainerMetric containerMetric, TaskMetric taskMetric, Duration springBootStartTime, Instant springBootReadyTime, Integer version) {
         this.containerMetric = containerMetric;

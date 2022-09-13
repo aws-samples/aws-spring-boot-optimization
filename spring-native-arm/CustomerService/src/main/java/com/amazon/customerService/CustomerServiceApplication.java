@@ -52,7 +52,8 @@ public class CustomerServiceApplication {
             metricWrapper.setVersion(AppConfig.APPLICATION_VERSION);
             metricWrapper.setSpringBootStartDuration(springBootStartTime);
             metricWrapper.setSpringBootReadyTime(endTime);
-            ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+            ObjectMapper mapper = new ObjectMapper()
+                    .registerModule(new JavaTimeModule());
 
             try {
                 String metricsJson = mapper.writeValueAsString(metricWrapper);

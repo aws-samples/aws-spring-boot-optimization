@@ -23,7 +23,6 @@ import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClientBuilder;
 
-import javax.servlet.Filter;
 import java.net.URI;
 
 @Configuration
@@ -44,7 +43,7 @@ public class AppConfig {
         DynamoDbClientBuilder clientBuilder = DynamoDbClient.builder();
         clientBuilder
                 .credentialsProvider(credentialsProvider);
-        if(!amazonDynamoDBEndpoint.isEmpty()){
+        if (!amazonDynamoDBEndpoint.isEmpty()) {
             clientBuilder.endpointOverride(URI.create(amazonDynamoDBEndpoint));
         }
         return clientBuilder.build();

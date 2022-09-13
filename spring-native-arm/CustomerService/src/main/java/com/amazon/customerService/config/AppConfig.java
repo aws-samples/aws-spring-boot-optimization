@@ -43,7 +43,7 @@ public class AppConfig {
         DynamoDbClientBuilder clientBuilder = DynamoDbClient.builder();
         clientBuilder
                 .credentialsProvider(credentialsProvider);
-        if(!amazonDynamoDBEndpoint.isEmpty()){
+        if (!amazonDynamoDBEndpoint.isEmpty()) {
             clientBuilder.endpointOverride(URI.create(amazonDynamoDBEndpoint));
         }
         return clientBuilder.build();

@@ -134,7 +134,7 @@ public class CustomerRepositoryTest {
         repository.deleteById(testCustomer.getId());
 
         List<Customer> customerList = repository.findAll();
-        Assert.assertTrue(customerList.size() == 0);
+        Assert.assertEquals(0, customerList.size());
     }
 
     @AfterAll
