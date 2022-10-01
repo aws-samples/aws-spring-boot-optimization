@@ -1,8 +1,8 @@
 {
-  "name": "cdkapp",
+  "name": "cdk",
   "version": "0.1.0",
   "bin": {
-    "cdkapp": "bin/cdkapp.js"
+    "cdk": "bin/cdk.js"
   },
   "scripts": {
     "build": "tsc",
@@ -11,18 +11,18 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.10",
+    "@types/jest": "^27.5.2",
     "@types/node": "10.17.27",
-    "aws-cdk": "2.10.0",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.2.0",
-    "ts-node": "^9.0.0",
+    "@types/prettier": "2.6.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "aws-cdk": "2.44.0",
+    "ts-node": "^10.9.1",
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.10.0",
-    "cdk-dia": "^0.7.0",
+    "aws-cdk-lib": "2.44.0",
     "constructs": "^10.0.0",
-    "source-map-support": "^0.5.16"
+    "source-map-support": "^0.5.21"
   }
 }
