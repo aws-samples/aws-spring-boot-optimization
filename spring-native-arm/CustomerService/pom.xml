@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.4</version>
+		<version>3.0.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.amazon</groupId>
@@ -15,8 +15,7 @@
 	<description>Demo application to demonstrate optimization steps for Spring Boot and AWS Fargate</description>
 	<properties>
 		<java.version>17</java.version>
-		<aws.sdk.version>2.17.121</aws.sdk.version>
-		<spring.native.version>0.11.3</spring.native.version>
+		<aws.sdk.version>2.19.7</aws.sdk.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -58,15 +57,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-undertow</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.experimental</groupId>
-			<artifactId>spring-native</artifactId>
-			<version>${spring.native.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 		<dependency>
@@ -102,29 +92,8 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.experimental</groupId>
-				<artifactId>spring-aot-maven-plugin</artifactId>
-				<version>${spring.native.version}</version>
-				<executions>
-					<execution>
-						<id>generate</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<image>
-						<builder>paketobuildpacks/builder:tiny</builder>
-						<env>
-							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
-						</env>
-					</image>
-				</configuration>
 			</plugin>
 		</plugins>
 		<resources>
@@ -153,7 +122,6 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<dependencies>
-				<!-- Required with Maven Surefire 2.x -->
 				<dependency>
 					<groupId>org.junit.platform</groupId>
 					<artifactId>junit-platform-launcher</artifactId>
@@ -165,7 +133,6 @@
 					<plugin>
 						<groupId>org.graalvm.buildtools</groupId>
 						<artifactId>native-maven-plugin</artifactId>
-						<version>0.9.9</version>
 						<extensions>true</extensions>
 						<executions>
 							<execution>
@@ -184,10 +151,9 @@
 							</execution>
 						</executions>
 						<configuration>
-							<buildArgs>-H:IncludeResources=org/joda/time/tz/data/.*,-H:ReflectionConfigurationFiles=../src/main/resources/META-INF/native-image/reflect-config.json</buildArgs>
+							<buildArgs>-H:ReflectionConfigurationFiles=./src/main/resources/META-INF/native-image/reflect-config.json</buildArgs>
 						</configuration>
 					</plugin>
-					<!-- Avoid a clash between Spring Boot repackaging and native-maven-plugin -->
 					<plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
@@ -199,4 +165,6 @@
 			</build>
 		</profile>
 	</profiles>
+			
+
 </project>

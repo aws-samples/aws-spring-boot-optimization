@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.3</version>
+		<version>3.0.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.amazon</groupId>
@@ -14,8 +14,8 @@
 	<name>CustomerService</name>
 	<description>Demo application to demonstrate optimization steps for Spring Boot and AWS Fargate</description>
 	<properties>
-		<java.version>11</java.version>
-		<aws.sdk.version>2.17.121</aws.sdk.version>
+		<java.version>17</java.version>
+		<aws.sdk.version>2.19.7</aws.sdk.version>
 	</properties>
 	<dependencies>
 		<dependency>
