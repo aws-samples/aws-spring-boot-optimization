@@ -76,10 +76,10 @@ The parameter `cpuType` can have either the value `X86_64` or `ARM64`.
 After the infrastructure has been created successfully, the output `LoadBalancerDNS` of the CloudFormation stack is the load balancer URL. You can test the application using the following statements:
 
 ```
-curl -v http://<lb-url>:8080/api/customers // Get a list of all customers
-curl -v http://<lb-url>:8080/api/customers/<id> // Get customer by id
+$ curl -v http://<lb-url>:8080/api/customers // Get a list of all customers
+$ curl -v http://<lb-url>:8080/api/customers/<id> // Get customer by id
 $ curl -v -d '{"userName":"hmueller", "firstName":"Hans", "lastName":"Mueller", "age":"35"}' -H "Content-Type: application/json" -X POST http://<lb-url>:8080/customers // Add a new customer
-curl -v -X DELETE http://<lb-url>:8080/customers/<id> // Delete customer by id
+$ curl -v -X DELETE http://<lb-url>:8080/customers/<id> // Delete customer by id
 
 ```
 
