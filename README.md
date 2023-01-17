@@ -4,7 +4,7 @@ This project contains the supporting code for the "Optimizing Spring Boot Applic
 
 # Architecture Overview
 
-The application is available in seven different configurations:
+The application is available in six different configurations (version seven isn't working anymore, distroless and GraalVM stopped working):
 
 * version 1, not optimized, running on x86_64
 * version 2, not optimized, running on ARM64
@@ -12,7 +12,6 @@ The application is available in seven different configurations:
 * version 4, custom JRE and additional optimizations running on ARM64
 * version 5, Spring Native (GraalVM AoT compilation) running on X86_64 with Ubuntu 22 parent image
 * version 6, Spring Native (GraalVM AoT compilation) running on ARM64 with Ubuntu 22 parent image
-* version 7, Spring Native (GraalVM AoT compilation) running on X86_64 with distroless parent image
 
 ![infrastructure-overview](images/SpringBoot_example_architecture.png)
 
@@ -78,7 +77,7 @@ After the infrastructure has been created successfully, the output `LoadBalancer
 ```
 $ curl -v http://<lb-url>:8080/api/customers // Get a list of all customers
 $ curl -v http://<lb-url>:8080/api/customers/<id> // Get customer by id
-$ curl -v -d '{"userName":"hmueller", "firstName":"Hans", "lastName":"Mueller", "age":"35"}' -H "Content-Type: application/json" -X POST http://<lb-url>:8080/customers // Add a new customer
+$ curl -v -d '{"name":"hmueller", "email":"hm@muelle.com", "accountNumber": "243423"}' -H "Content-Type: application/json" -X POST http://<lb-url>:8080/customers // Add a new customer
 $ curl -v -X DELETE http://<lb-url>:8080/customers/<id> // Delete customer by id
 
 ```
