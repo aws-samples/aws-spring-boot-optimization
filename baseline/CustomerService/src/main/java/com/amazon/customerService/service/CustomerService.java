@@ -21,6 +21,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.time.Instant;
 import java.util.List;
 import java.util.Random;
@@ -60,7 +61,7 @@ public class CustomerService {
             Customer cust = new Customer();
             cust.setName(generatedString);
             cust.setId(UUID.randomUUID().toString());
-            cust.setRegDate(Instant.now());
+            cust.setRegDate(Date.from(Instant.now()));
             cust.setEmail(generatedString + "@test.com");
 
             Random rnd = new Random();

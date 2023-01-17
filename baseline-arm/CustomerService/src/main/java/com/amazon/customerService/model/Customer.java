@@ -20,7 +20,7 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttri
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 
-import java.time.Instant;
+import java.util.Date;
 import java.util.Objects;
 
 @DynamoDbBean
@@ -29,18 +29,7 @@ import java.util.Objects;
 public class Customer {
 
     private String id, name, email, accountNumber;
-    private Instant regDate;
-
-    public Customer() {
-    }
-
-    public Customer(final Customer customer) {
-        this.id = customer.id;
-        this.name = customer.name;
-        this.accountNumber = customer.accountNumber;
-        this.email = customer.email;
-        this.regDate = customer.regDate;
-    }
+    private Date regDate;
 
     @DynamoDbPartitionKey
     @DynamoDbAttribute(value = "Id")
@@ -80,11 +69,11 @@ public class Customer {
     }
 
     @DynamoDbAttribute(value = "RegistrationDate")
-    public Instant getRegDate() {
+    public Date getRegDate() {
         return regDate;
     }
 
-    public void setRegDate(Instant regDate) {
+    public void setRegDate(Date regDate) {
         this.regDate = regDate;
     }
 

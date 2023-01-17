@@ -39,7 +39,7 @@ public class CustomerRepository {
 
     final DynamoDbClient client;
 
-    private SimpleDateFormat sdf;
+    private final SimpleDateFormat sdf;
 
     @Autowired
     public CustomerRepository(DynamoDbClient client) {
@@ -49,7 +49,12 @@ public class CustomerRepository {
     }
 
     public Customer save(final Customer customer) {
-        log.debug("Storing customer -> " + customer);
+
+        customer.setId(UUID.randomUUID().toString());
+
+        if (customer.getRegDate() == null) {
+            customer.setRegDate(new Date());
+        }
 
         PutItemRequest putItemRequest = PutItemRequest.builder()
                 .tableName(TABLE_NAME)
@@ -100,8 +105,8 @@ public class CustomerRepository {
         }
 
         log.debug("Found customers: ");
-        for (Customer customer: customerList
-             ) {
+        for (Customer customer : customerList
+        ) {
             log.debug("  -> " + customer);
         }
 
@@ -147,13 +152,11 @@ public class CustomerRepository {
 
         try {
             registrationDate = sdf.parse(item.get(REGISTRATION_DATE_COLUMN).s());
-        }
-
-        catch (ParseException exc) {
+        } catch (ParseException exc) {
             log.error(exc.toString());
         }
 
-        customer.setRegDate(registrationDate.toInstant());
+        customer.setRegDate(registrationDate);
 
         return customer;
     }

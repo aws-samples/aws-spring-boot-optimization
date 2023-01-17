@@ -49,7 +49,12 @@ public class CustomerRepository {
     }
 
     public Customer save(final Customer customer) {
-        log.debug("Storing customer -> " + customer);
+
+        customer.setId(UUID.randomUUID().toString());
+
+        if (customer.getRegDate() == null) {
+            customer.setRegDate(new Date());
+        }
 
         PutItemRequest putItemRequest = PutItemRequest.builder()
                 .tableName(TABLE_NAME)
@@ -151,7 +156,7 @@ public class CustomerRepository {
             log.error(exc.toString());
         }
 
-        customer.setRegDate(registrationDate.toInstant());
+        customer.setRegDate(registrationDate);
 
         return customer;
     }
