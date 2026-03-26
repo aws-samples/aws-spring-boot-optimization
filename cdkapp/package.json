@@ -20,6 +20,10 @@
     "ts-node": "^10.9.2",
     "typescript": "~5.5.4"
   },
+  "overrides": {
+    "picomatch@2": "2.3.2",
+    "picomatch@4": "4.0.4"
+  },
   "dependencies": {
     "aws-cdk-lib": "2.243.0",
     "constructs": "^10.5.1",
