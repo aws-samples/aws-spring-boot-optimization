@@ -14,18 +14,14 @@
     "@types/jest": "^30.0.0",
     "@types/node": "22.1.0",
     "@types/prettier": "2.7.3",
-    "aws-cdk": "2.1111.0",
+    "aws-cdk": "2.1114.1",
     "jest": "^30.3.0",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "~5.5.4"
   },
-  "overrides": {
-    "picomatch@2": "2.3.2",
-    "picomatch@4": "4.0.4"
-  },
   "dependencies": {
-    "aws-cdk-lib": "2.243.0",
+    "aws-cdk-lib": "2.244.0",
     "constructs": "^10.5.1",
     "source-map-support": "^0.5.21"
   }
